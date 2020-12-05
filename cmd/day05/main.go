@@ -9,17 +9,17 @@ import (
 
 func getSeatId(boardingPass string) int {
 	row := 0
-	column := 0
-	for i := 0; i < 7; i++ {
+	for _, char := range boardingPass[:7] {
 		row *= 2
-		if boardingPass[i] == 'B' {
+		if char == 'B' {
 			row++
 		}
 	}
 
-	for i := 7; i < 10; i++ {
+	column := 0
+	for _, char := range boardingPass[7:] {
 		column *= 2
-		if boardingPass[i] == 'R' {
+		if char == 'R' {
 			column++
 		}
 	}
